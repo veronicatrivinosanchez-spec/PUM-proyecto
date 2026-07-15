@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckg7oqdu0f048"
+path="res://.godot/imported/Camello Patagónico  Cuarteto de Nos - 8 Bits Version.mp3-d1a8d9b1053c5c2d0536536fe6366306.mp3str"
+
+[deps]
+
+source_file="res://Images/Camello Patagónico  Cuarteto de Nos - 8 Bits Version.mp3"
+dest_files=["res://.godot/imported/Camello Patagónico  Cuarteto de Nos - 8 Bits Version.mp3-d1a8d9b1053c5c2d0536536fe6366306.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

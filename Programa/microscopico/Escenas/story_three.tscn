@@ -1,0 +1,148 @@
+[gd_scene load_steps=20 format=3 uid="uid://dr3p5wrmnm8dp"]
+
+[ext_resource type="Script" uid="uid://dig40txc7dsse" path="res://Script/story_three.gd" id="1_xtxee"]
+[ext_resource type="Texture2D" uid="uid://38hc41a337dx" path="res://Images/Fondo8.png" id="2_xtxee"]
+[ext_resource type="FontFile" uid="uid://0t2vlvb7nkm3" path="res://Images/Letters for Learners.ttf" id="3_wtc17"]
+[ext_resource type="Texture2D" uid="uid://cvldms8qhsxm3" path="res://art/Mitocondria.png" id="4_wtc17"]
+[ext_resource type="PackedScene" uid="uid://bm3st7q8ncly7" path="res://Escenas/platform_player.tscn" id="5_2yhd2"]
+[ext_resource type="Texture2D" uid="uid://dy4520iwxjxsi" path="res://art/Centriolo (1).png" id="5_nubjq"]
+[ext_resource type="Texture2D" uid="uid://byn0tfpympvxv" path="res://Images/TECLAS.png" id="6_ntg60"]
+[ext_resource type="AudioStream" uid="uid://cyshgser0mmxr" path="res://Images/esplin-cuarteto-de-nos-8-bits-version-aaron-fqu_Bq8f9tlU.mp3" id="7_g4n24"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44l6k"]
+texture = ExtResource("2_xtxee")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yhd2"]
+atlas = ExtResource("4_wtc17")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntg60"]
+atlas = ExtResource("4_wtc17")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wlehw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yhd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntg60")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4n24"]
+atlas = ExtResource("5_nubjq")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emjxk"]
+atlas = ExtResource("5_nubjq")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16e54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4n24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emjxk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6pgq"]
+size = Vector2(281, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvgiq"]
+atlas = ExtResource("6_ntg60")
+region = Rect2(0, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b581y"]
+atlas = ExtResource("6_ntg60")
+region = Rect2(0, 1280, 1280, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1q037"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvgiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b581y")
+}],
+"loop": true,
+"name": &"flash",
+"speed": 5.0
+}]
+
+[node name="story_three" type="Node2D"]
+script = ExtResource("1_xtxee")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1154.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_44l6k")
+
+[node name="Cuadro_texto" type="CanvasLayer" parent="Panel"]
+
+[node name="Panel" type="Panel" parent="Panel/Cuadro_texto"]
+offset_left = 26.0
+offset_top = 21.0
+offset_right = 1100.0
+offset_bottom = 156.0
+
+[node name="Texto" type="Label" parent="Panel/Cuadro_texto/Panel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 19.0
+offset_right = 1057.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("3_wtc17")
+theme_override_font_sizes/font_size = 30
+text = "esternocleidomastoideo"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Mitocondria" type="AnimatedSprite2D" parent="."]
+position = Vector2(1013, 544)
+scale = Vector2(1.14, 1.14)
+sprite_frames = SubResource("SpriteFrames_wlehw")
+animation = &"idle"
+frame_progress = 0.913021
+
+[node name="centriolo" type="AnimatedSprite2D" parent="."]
+position = Vector2(918, 534)
+scale = Vector2(0.36, 0.36)
+sprite_frames = SubResource("SpriteFrames_16e54")
+animation = &"idle"
+
+[node name="platform_player" parent="." instance=ExtResource("5_2yhd2")]
+position = Vector2(140, 483)
+scale = Vector2(4.285, 4.285)
+
+[node name="Interactuable" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuable"]
+position = Vector2(953, 505)
+shape = SubResource("RectangleShape2D_c6pgq")
+
+[node name="Teclas" type="AnimatedSprite2D" parent="Interactuable"]
+position = Vector2(979, 414)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_1q037")
+animation = &"flash"
+frame_progress = 0.0633013
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_g4n24")
+volume_db = 15.0
+autoplay = true
+
+[connection signal="body_entered" from="Interactuable" to="." method="_on_interactuable_body_entered"]
+[connection signal="body_exited" from="Interactuable" to="." method="_on_interactuable_body_exited"]

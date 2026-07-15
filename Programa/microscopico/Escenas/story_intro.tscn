@@ -1,0 +1,171 @@
+[gd_scene load_steps=23 format=3 uid="uid://ckc7wbm8u2cqu"]
+
+[ext_resource type="Script" uid="uid://65jlv2gtdoyu" path="res://Script/story_intro.gd" id="1_wjsl2"]
+[ext_resource type="Texture2D" uid="uid://lh0mxr2ocfnw" path="res://Images/ChatGPT Image 16 oct 2025, 08_59_20 p.m..png" id="2_wjsl2"]
+[ext_resource type="PackedScene" uid="uid://bm3st7q8ncly7" path="res://Escenas/platform_player.tscn" id="2_y4o1e"]
+[ext_resource type="Texture2D" uid="uid://bwy781jr067ao" path="res://Images/Cililo.png" id="4_462at"]
+[ext_resource type="Texture2D" uid="uid://hjadd3cw7ox1" path="res://Images/Flagelo.png" id="5_vjhmt"]
+[ext_resource type="Texture2D" uid="uid://byn0tfpympvxv" path="res://Images/TECLAS.png" id="7_ll676"]
+[ext_resource type="Texture2D" uid="uid://mjevjlgon0c6" path="res://Images/New Piskel.png" id="7_ynm7i"]
+[ext_resource type="AudioStream" uid="uid://cyshgser0mmxr" path="res://Images/esplin-cuarteto-de-nos-8-bits-version-aaron-fqu_Bq8f9tlU.mp3" id="8_wjsl2"]
+[ext_resource type="FontFile" uid="uid://0t2vlvb7nkm3" path="res://Images/Letters for Learners.ttf" id="8_ynm7i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4v1t"]
+texture = ExtResource("2_wjsl2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmcxp"]
+atlas = ExtResource("4_462at")
+region = Rect2(0, 0, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjsl2"]
+atlas = ExtResource("4_462at")
+region = Rect2(0, 608, 608, 608)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ll676"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmcxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjsl2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynm7i"]
+atlas = ExtResource("5_vjhmt")
+region = Rect2(0, 0, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qegjf"]
+atlas = ExtResource("5_vjhmt")
+region = Rect2(0, 608, 608, 608)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrwgj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynm7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qegjf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qegjf"]
+size = Vector2(6511.11, 3933.33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6gbu"]
+atlas = ExtResource("7_ynm7i")
+region = Rect2(0, 0, 2560, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s207g"]
+atlas = ExtResource("7_ynm7i")
+region = Rect2(0, 1280, 2560, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrwgj"]
+atlas = ExtResource("7_ll676")
+region = Rect2(0, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tccf"]
+atlas = ExtResource("7_ll676")
+region = Rect2(0, 1280, 1280, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6gbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6gbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s207g")
+}],
+"loop": true,
+"name": &"button2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrwgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tccf")
+}],
+"loop": true,
+"name": &"flash",
+"speed": 5.0
+}]
+
+[node name="story_intro" type="Node2D"]
+script = ExtResource("1_wjsl2")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -1.0
+offset_right = 1151.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b4v1t")
+
+[node name="DialogueUI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="DialogueUI"]
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 1081.0
+offset_bottom = 185.0
+
+[node name="DialogueTextLabel" type="Label" parent="DialogueUI/Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 1009.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_ynm7i")
+theme_override_font_sizes/font_size = 30
+text = "ESTERNOCLEIDO "
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Cilio" type="AnimatedSprite2D" parent="."]
+visibility_layer = 2
+position = Vector2(882, 541)
+scale = Vector2(0.305, 0.305)
+sprite_frames = SubResource("SpriteFrames_ll676")
+animation = &"idle"
+
+[node name="Flagelo" type="AnimatedSprite2D" parent="."]
+visibility_layer = 2
+position = Vector2(947, 556)
+scale = Vector2(0.29, 0.29)
+sprite_frames = SubResource("SpriteFrames_vrwgj")
+animation = &"idle"
+
+[node name="platform_player" parent="." instance=ExtResource("2_y4o1e")]
+light_mask = 3
+position = Vector2(98, 514)
+scale = Vector2(4.47, 4.47)
+
+[node name="InteractionPoint" type="Area2D" parent="."]
+position = Vector2(925, 456)
+scale = Vector2(0.045, 0.045)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionPoint"]
+position = Vector2(-411.113, 2500)
+shape = SubResource("RectangleShape2D_qegjf")
+
+[node name="PromptLabel" type="AnimatedSprite2D" parent="InteractionPoint"]
+position = Vector2(-222.225, -44.4458)
+sprite_frames = SubResource("SpriteFrames_h6gbu")
+animation = &"flash"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wjsl2")
+autoplay = true
+
+[connection signal="body_entered" from="InteractionPoint" to="." method="_on_interaction_point_body_entered"]
+[connection signal="body_exited" from="InteractionPoint" to="." method="_on_interaction_point_body_exited"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3jfoe3a02j1y"]
+
+[ext_resource type="Texture2D" uid="uid://cemqo7yqehr3v" path="res://Images/Escalera-2.png (1).png" id="1_lmh4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrpr1"]
+size = Vector2(165.217, 417.391)
+
+[node name="Stair" type="Area2D"]
+light_mask = 8
+visibility_layer = 7
+
+[node name="Escalera-2_png(1)" type="Sprite2D" parent="."]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("1_lmh4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.96046e-08, -0.999998)
+scale = Vector2(0.23, 0.23)
+shape = SubResource("RectangleShape2D_jrpr1")

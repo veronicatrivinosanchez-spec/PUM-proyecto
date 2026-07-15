@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cirs5ydabujs4"]
+
+[ext_resource type="Script" path="res://adn.gd" id="1_8xumn"]
+[ext_resource type="Texture2D" uid="uid://wqhr3wpdi5te" path="res://ChatGPT Image 19 oct 2025, 16_39_39.png" id="1_tfx5v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfx5v"]
+height = 40.0
+
+[node name="ADN" type="Area2D"]
+script = ExtResource("1_8xumn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(226, 87)
+scale = Vector2(0.0566406, 0.0654297)
+texture = ExtResource("1_tfx5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(226, 86)
+shape = SubResource("CapsuleShape2D_tfx5v")

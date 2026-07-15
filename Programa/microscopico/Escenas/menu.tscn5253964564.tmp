@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3k4fucktnjpj"]
+
+[ext_resource type="Script" uid="uid://dm1mio3xnx0i" path="res://Script/menu.gd" id="1_17m5t"]
+[ext_resource type="Texture2D" uid="uid://dpf1b5v42y1yg" path="res://Images/ChatGPT Image 12 jun 2025, 06_32_44 p.m..png" id="2_cp3rd"]
+[ext_resource type="FontFile" uid="uid://bx600nsokpkqq" path="res://Images/pixel.ttf" id="3_kim34"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp3rd"]
+texture = ExtResource("2_cp3rd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p25xy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p25xy"]
+bg_color = Color(0.488374, 0.544698, 0.478296, 1)
+draw_center = false
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kim34"]
+bg_color = Color(0.488374, 0.544698, 0.478296, 1)
+draw_center = false
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17m5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp3rd"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_17m5t")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cp3rd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -454.0
+offset_top = -61.0
+offset_right = -96.0
+offset_bottom = 269.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 38
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.823529, 0.517647, 1)
+theme_override_colors/font_hover_color = Color(0.993354, 0.929125, 0.785304, 1)
+theme_override_colors/font_color = Color(0.988235, 0.882353, 0.643137, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_fonts/font = ExtResource("3_kim34")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p25xy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p25xy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kim34")
+text = "Iniciar Juego"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_hover_color = Color(0.992157, 0.929412, 0.784314, 1)
+theme_override_colors/font_color = Color(0.988235, 0.882353, 0.643137, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_fonts/font = ExtResource("3_kim34")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17m5t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kim34")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kim34")
+text = "salir"
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_hover_color = Color(0.992157, 0.929412, 0.784314, 1)
+theme_override_colors/font_color = Color(0.988235, 0.882353, 0.643137, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_fonts/font = ExtResource("3_kim34")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cp3rd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kim34")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kim34")
+text = "oPCIONES"
+
+[node name="ScoresButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_hover_color = Color(0.992157, 0.929412, 0.784314, 1)
+theme_override_colors/font_color = Color(0.988235, 0.882353, 0.643137, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_colors/font_pressed_color = Color(0.72549, 0.635294, 0.466667, 1)
+theme_override_fonts/font = ExtResource("3_kim34")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cp3rd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kim34")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kim34")
+text = "puntaje maximo"
+
+[connection signal="pressed" from="Panel/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]

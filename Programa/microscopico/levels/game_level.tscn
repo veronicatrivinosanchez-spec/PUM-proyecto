@@ -1,0 +1,113 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8f1ign6hpicr"]
+
+[ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://objects/key_listener.tscn" id="1_h3xak"]
+[ext_resource type="Texture2D" uid="uid://ck7hlmenb3q6" path="res://art/ChatGPT Image 17 oct 2025, 01_05_53 a.m..png" id="1_n0b0m"]
+[ext_resource type="PackedScene" uid="uid://dpc13ucm0i8fg" path="res://levels/game_ui.tscn" id="2_l1p8s"]
+[ext_resource type="PackedScene" uid="uid://lygtba4dwai2" path="res://objects/falling_key.tscn" id="3_2i5ty"]
+[ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://objects/level_editor.tscn" id="4_1wrej"]
+[ext_resource type="Texture2D" uid="uid://cvldms8qhsxm3" path="res://art/Mitocondria.png" id="6_smvv8"]
+[ext_resource type="Texture2D" uid="uid://dy4520iwxjxsi" path="res://art/Centriolo (1).png" id="7_5kejm"]
+
+[sub_resource type="Environment" id="Environment_i5mjo"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n7cs"]
+atlas = ExtResource("6_smvv8")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4sme"]
+atlas = ExtResource("6_smvv8")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6325"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n7cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4sme")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egnn0"]
+atlas = ExtResource("7_5kejm")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkcp4"]
+atlas = ExtResource("7_5kejm")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8r0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egnn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkcp4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="GameLevel" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-0.99995, 0)
+scale = Vector2(0.747396, 0.635)
+texture = ExtResource("1_n0b0m")
+
+[node name="KeyListener" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(-102.327, 269.458)
+frame = 2
+key_name = "button_Q"
+
+[node name="KeyListener2" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(-22.328, 269.458)
+key_name = "button_W"
+
+[node name="KeyListener3" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(57.672, 269.458)
+frame = 1
+key_name = "button_E"
+
+[node name="KeyListener4" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(136.423, 267.208)
+frame = 3
+key_name = "button_R"
+
+[node name="FallingKey" parent="." instance=ExtResource("3_2i5ty")]
+visible = false
+position = Vector2(-39, -164)
+
+[node name="GameUI" parent="." instance=ExtResource("2_l1p8s")]
+metadata/_edit_use_anchors_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i5mjo")
+
+[node name="LevelEditor" parent="." instance=ExtResource("4_1wrej")]
+
+[node name="mitocondria" type="AnimatedSprite2D" parent="."]
+position = Vector2(-243, 72)
+sprite_frames = SubResource("SpriteFrames_x6325")
+animation = &"idle"
+frame = 1
+frame_progress = 0.598001
+
+[node name="centriolo" type="AnimatedSprite2D" parent="."]
+position = Vector2(-341, 62)
+scale = Vector2(0.395, 0.395)
+sprite_frames = SubResource("SpriteFrames_o8r0f")
+animation = &"idle"
+frame_progress = 0.867818

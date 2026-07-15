@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddibd0y6i0tvd"]
+
+[ext_resource type="Texture2D" uid="uid://dfsvagcd0pnxf" path="res://bacteria.png" id="1_jncix"]
+[ext_resource type="Script" path="res://bacteria.gd" id="1_teomh"]
+
+[node name="bacteria" type="Area2D"]
+script = ExtResource("1_teomh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640.813, 274.75)
+scale = Vector2(0.0550538, 0.0649414)
+texture = ExtResource("1_jncix")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(237.694, 54.3194)
+scale = Vector2(0.615132, 0.772817)
+polygon = PackedVector2Array(648, 320, 629, 306, 630, 291, 643, 275, 648, 259, 661, 258, 667, 264, 667, 289, 654, 304, 656, 314, 666, 300, 660, 321)

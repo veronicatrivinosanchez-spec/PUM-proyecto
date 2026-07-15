@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxif2x2fqmt5f"]
+
+[ext_resource type="Script" uid="uid://b2nxog5pfbtx8" path="res://Script/bouncing_character.gd" id="1_84bps"]
+[ext_resource type="Texture2D" uid="uid://dfepk1183im7r" path="res://Images/Flagelooo.png" id="2_84bps"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbtkx"]
+radius = 19.0
+height = 52.0
+
+[node name="BouncingCharacter" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_84bps")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -9.53674e-07)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_84bps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_gbtkx")
+
+[connection signal="body_entered" from="." to="." method="_on_BouncingCharacter_body_entered"]

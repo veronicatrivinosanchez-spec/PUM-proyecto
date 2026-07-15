@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqhrxat2w5amy"]
+
+[ext_resource type="Script" uid="uid://30ia71olpmkc" path="res://Script/protein_obstacle.gd" id="1_hfndh"]
+[ext_resource type="Texture2D" uid="uid://ddkgw03tufa7w" path="res://Imagenes/Bola-1.png.png" id="1_wybff"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfndh"]
+radius = 8.27079
+
+[node name="ProteinObstacle" type="RigidBody2D" groups=["proteins"]]
+position = Vector2(2, 3)
+scale = Vector2(3.86, 3.86)
+collision_layer = 4
+collision_mask = 11
+mass = 0.007
+gravity_scale = 1.98
+script = ExtResource("1_hfndh")
+
+[node name="Bola-1_png" type="Sprite2D" parent="."]
+light_mask = 2
+scale = Vector2(0.148, 0.149)
+texture = ExtResource("1_wybff")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ScoreArea"]
+position = Vector2(1.66893e-06, -48.2059)
+scale = Vector2(2.42647, 3.34118)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2(-1.47059, -1.47059)
+scale = Vector2(0.685, 0.685)
+shape = SubResource("CircleShape2D_hfndh")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="screen_exited" from="ScoreArea/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

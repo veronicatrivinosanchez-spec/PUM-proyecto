@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy1ykteudyat8"]
+
+[ext_resource type="Script" uid="uid://isvlqhtxb0kg" path="res://Script/high_scores.gd" id="1_frsc2"]
+[ext_resource type="FontFile" uid="uid://bx600nsokpkqq" path="res://Images/pixel.ttf" id="2_aaac4"]
+[ext_resource type="Texture2D" uid="uid://b6ur60r2x3kh0" path="res://Images/FondoPuntaje.png" id="2_aft00"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2jfm"]
+texture = ExtResource("2_aft00")
+
+[node name="HighScores" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_frsc2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1146.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q2jfm")
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 566.0
+offset_bottom = 97.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_aaac4")
+theme_override_font_sizes/font_size = 49
+text = "PUNTAJE RECORD"
+
+[node name="CatchGameScoreLabel" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 121.0
+offset_right = 264.0
+offset_bottom = 187.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_aaac4")
+theme_override_font_sizes/font_size = 36
+text = "  PUNTAJE:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 330.0
+offset_top = 549.0
+offset_right = 864.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_aaac4")
+theme_override_font_sizes/font_size = 36
+text = "VOLVER"

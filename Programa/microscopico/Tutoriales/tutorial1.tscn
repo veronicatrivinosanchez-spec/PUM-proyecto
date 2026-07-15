@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1wbgu4kmo5s7"]
+
+[ext_resource type="Texture2D" uid="uid://cokpe1tl1q1wc" path="res://Tutoriales/Minijuego1.png" id="1_6tfvh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6tfvh"]
+texture = ExtResource("1_6tfvh")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 1066.0
+offset_bottom = 598.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6tfvh")

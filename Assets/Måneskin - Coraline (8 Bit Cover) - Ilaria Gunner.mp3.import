@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5phajiuhynv3"
+path="res://.godot/imported/Måneskin - Coraline (8 Bit Cover) - Ilaria Gunner.mp3-e382349d9b70a099ff49834144776e77.mp3str"
+
+[deps]
+
+source_file="res://Images/Måneskin - Coraline (8 Bit Cover) - Ilaria Gunner.mp3"
+dest_files=["res://.godot/imported/Måneskin - Coraline (8 Bit Cover) - Ilaria Gunner.mp3-e382349d9b70a099ff49834144776e77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

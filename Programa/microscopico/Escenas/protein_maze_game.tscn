@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://dus5d8pwgb55o"]
+
+[ext_resource type="Script" uid="uid://d2ajig6a5uehc" path="res://Script/protein_maze_game.gd" id="1_b3f6c"]
+[ext_resource type="PackedScene" uid="uid://bm3st7q8ncly7" path="res://Escenas/platform_player.tscn" id="2_8nnod"]
+[ext_resource type="PackedScene" uid="uid://yphp2qwj2yae" path="res://Escenas/plataforma_estatica.tscn" id="3_hpkid"]
+[ext_resource type="PackedScene" uid="uid://dvsw3vbch83yc" path="res://Escenas/ProteinObstacle.tscn" id="6_fi21h"]
+[ext_resource type="FontFile" uid="uid://bx600nsokpkqq" path="res://Images/pixel.ttf" id="7_1a6n5"]
+[ext_resource type="PackedScene" uid="uid://d3jfoe3a02j1y" path="res://Escenas/stair.tscn" id="7_43r8f"]
+[ext_resource type="Texture2D" uid="uid://bl1ljspfa7u56" path="res://Images/Gemini_Generated_Image_s7lyqgs7lyqgs7ly.png" id="7_au1dh"]
+[ext_resource type="Texture2D" uid="uid://bp66ldf855u6q" path="res://Images/Gemini_Generated_Image_icudr5icudr5icud-Photoroom.png" id="8_ptnqt"]
+[ext_resource type="AudioStream" uid="uid://5phajiuhynv3" path="res://Images/Måneskin - Coraline (8 Bit Cover) - Ilaria Gunner.mp3" id="9_h2h07"]
+[ext_resource type="Script" path="res://Escenas/boton.gd" id="10_3b7ho"]
+[ext_resource type="Texture2D" uid="uid://c4r2fic77o162" path="res://Images/boton-removebg-preview.png" id="10_h2h07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3b7ho"]
+radius = 350.773
+
+[node name="ProteinMazeGame" type="Node2D"]
+script = ExtResource("1_b3f6c")
+protein_scene = ExtResource("6_fi21h")
+metadata/_edit_horizontal_guides_ = [-355.0]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+scale = Vector2(0.107731, 0.288491)
+
+[node name="Escaleras" type="Node" parent="Panel"]
+
+[node name="Stair5" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(508, 503)
+scale = Vector2(0.95, 0.86)
+
+[node name="Stair10" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(600, 425)
+scale = Vector2(0.95, 0.97)
+
+[node name="Stair3" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(394, 342)
+scale = Vector2(0.95, 0.865)
+
+[node name="Stair4" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(187, 343)
+scale = Vector2(0.902, 0.705)
+
+[node name="Stair6" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(183, 506)
+scale = Vector2(0.902, 0.62)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Stair7" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(974, 588)
+scale = Vector2(0.902, 0.645)
+
+[node name="Stair8" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(974, 424)
+scale = Vector2(0.902, 0.775)
+
+[node name="Stair9" parent="Panel/Escaleras" instance=ExtResource("7_43r8f")]
+position = Vector2(974, 258)
+scale = Vector2(0.902, 0.735)
+
+[node name="Plataformas" type="Node" parent="Panel"]
+
+[node name="plataforma_estatica" parent="Panel/Plataformas" instance=ExtResource("3_hpkid")]
+z_index = 1
+position = Vector2(688, 464)
+rotation = -0.035717
+
+[node name="plataforma_estatica2" parent="Panel/Plataformas" instance=ExtResource("3_hpkid")]
+z_index = 1
+position = Vector2(486, 384)
+rotation = 0.0242489
+
+[node name="plataforma_estatica4" parent="Panel/Plataformas" instance=ExtResource("3_hpkid")]
+z_index = 1
+position = Vector2(502, 226)
+rotation = 0.0119521
+
+[node name="plataforma_estatica3" parent="Panel/Plataformas" instance=ExtResource("3_hpkid")]
+z_index = 1
+position = Vector2(686, 300)
+rotation = -0.0352564
+
+[node name="plataforma_estatica5" parent="Panel/Plataformas" instance=ExtResource("3_hpkid")]
+z_index = 1
+position = Vector2(506, 552)
+rotation = 0.0294754
+
+[node name="plataforma_estatica6" parent="Panel/Plataformas" instance=ExtResource("3_hpkid")]
+z_index = 1
+position = Vector2(590, 634)
+rotation = -0.0180126
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Panel"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Panel/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/ParallaxBackground/ParallaxLayer"]
+position = Vector2(539, 426)
+texture = ExtResource("7_au1dh")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Panel/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(540, 422)
+scale = Vector2(0.994666, 1)
+texture = ExtResource("8_ptnqt")
+
+[node name="platform_player" parent="Panel" instance=ExtResource("2_8nnod")]
+z_index = 3
+position = Vector2(649.766, 2072.86)
+scale = Vector2(16.79, 4.17222)
+floor_max_angle = 0.804597
+
+[node name="Camera2D" type="Camera2D" parent="Panel/platform_player"]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 4.0
+offset_top = 202.0
+offset_right = 1165.0
+offset_bottom = 580.0
+theme_override_colors/font_shadow_color = Color(0.716952, 0.0766594, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_fonts/font = ExtResource("7_1a6n5")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer"]
+offset_left = 864.0
+offset_top = -13.0
+offset_right = 1099.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_1a6n5")
+theme_override_font_sizes/font_size = 50
+text = "Vida: 3"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 429.0
+offset_top = -14.0
+offset_right = 804.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_1a6n5")
+theme_override_font_sizes/font_size = 50
+text = "Puntos: 0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_h2h07")
+autoplay = true
+
+[node name="ButtonArea" type="Area2D" parent="."]
+position = Vector2(98, 68)
+scale = Vector2(0.345, 0.345)
+script = ExtResource("10_3b7ho")
+
+[node name="Boton-removebg-preview2" type="Sprite2D" parent="ButtonArea"]
+position = Vector2(475.362, -72.4638)
+scale = Vector2(1.379, 1.379)
+texture = ExtResource("10_h2h07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonArea"]
+position = Vector2(646.377, 139.13)
+shape = SubResource("CircleShape2D_3b7ho")

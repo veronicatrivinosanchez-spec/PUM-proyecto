@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxf65fgabgbs2"]
+
+[ext_resource type="Script" uid="uid://8f50xb5soehf" path="res://fondo.gd" id="1_7gew1"]
+[ext_resource type="Texture2D" uid="uid://g7annftimnjt" path="res://fondo.png" id="1_dkg5d"]
+[ext_resource type="PackedScene" uid="uid://135ka1t2xcy2" path="res://oliver.tscn" id="2_7gew1"]
+[ext_resource type="PackedScene" uid="uid://cirs5ydabujs4" path="res://adn.tscn" id="4_hkn16"]
+[ext_resource type="PackedScene" uid="uid://ddibd0y6i0tvd" path="res://bacteria.tscn" id="5_unfmx"]
+[ext_resource type="AudioStream" uid="uid://cyd3mxamovf0a" path="res://ILLIT (아일릿) 'Tick-Tack' - Videogame Ver. [8ulbP4WAwfg].mp3" id="6_cjtcs"]
+[ext_resource type="FontFile" uid="uid://bx600nsokpkqq" path="res://Images/pixel.ttf" id="7_wi48w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hkn16"]
+texture = ExtResource("1_dkg5d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkg5d"]
+size = Vector2(1152.5, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gew1"]
+size = Vector2(28, 647.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7gew1")
+adn = ExtResource("4_hkn16")
+bacteria = ExtResource("5_unfmx")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_hkn16")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_7gew1")]
+position = Vector2(181, 231)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576.75, 588.5)
+shape = SubResource("RectangleShape2D_dkg5d")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1160, 323)
+shape = SubResource("RectangleShape2D_7gew1")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-8, 326)
+shape = SubResource("RectangleShape2D_7gew1")
+
+[node name="ADN" parent="." instance=ExtResource("4_hkn16")]
+position = Vector2(259, -132)
+collision_mask = 3
+
+[node name="bacteria" parent="." instance=ExtResource("5_unfmx")]
+position = Vector2(15, -322)
+collision_mask = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cjtcs")
+parameters/looping = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LabelVidas" type="Label" parent="CanvasLayer"]
+offset_left = 13.0
+offset_top = 22.0
+offset_right = 104.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("7_wi48w")
+text = "vidas: "
+
+[node name="LabelPuntaje" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 52.0
+offset_right = 133.0
+offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("7_wi48w")
+text = "PUNTAJE: "
+
+[node name="LabelGameOver" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 322.0
+offset_top = 266.0
+offset_right = 867.0
+offset_bottom = 396.0
+theme_override_fonts/font = ExtResource("7_wi48w")
+theme_override_font_sizes/font_size = 70
+text = "¡GAME OVER!"
+
+[node name="LabelTiempo" type="Label" parent="CanvasLayer"]
+offset_left = 12.0
+offset_top = 85.0
+offset_right = 52.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("7_wi48w")
+text = "Tiempo:"

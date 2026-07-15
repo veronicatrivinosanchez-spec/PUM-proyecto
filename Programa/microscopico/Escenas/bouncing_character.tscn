@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpkyh5lfbucsq"]
+
+[ext_resource type="Script" uid="uid://b2nxog5pfbtx8" path="res://Script/bouncing_character.gd" id="1_mintj"]
+[ext_resource type="Texture2D" uid="uid://cr87ywpvemymx" path="res://Images/Cililo-1.png (1).png" id="2_qipxf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbtkx"]
+radius = 19.0
+height = 52.0
+
+[node name="BouncingCharacter" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_mintj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -9.53674e-07)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_qipxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_gbtkx")
+
+[connection signal="body_entered" from="." to="." method="_on_BouncingCharacter_body_entered"]

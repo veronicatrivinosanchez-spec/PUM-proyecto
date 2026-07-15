@@ -1,0 +1,275 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfplbh0fcjwbn"]
+
+[ext_resource type="Script" uid="uid://bgtw751ywkcva" path="res://catch_game.gd" id="1_k5ny0"]
+[ext_resource type="FontFile" uid="uid://bx600nsokpkqq" path="res://Escenas/pixel.ttf" id="2_eqdmt"]
+[ext_resource type="Texture2D" uid="uid://bnwxm11djy0vc" path="res://Images/fondo.jpg" id="2_k4bkk"]
+[ext_resource type="PackedScene" uid="uid://cpkyh5lfbucsq" path="res://Escenas/bouncing_character.tscn" id="3_eqdmt"]
+[ext_resource type="PackedScene" uid="uid://infuubhpemhx" path="res://Escenas/player.tscn" id="4_voh7t"]
+[ext_resource type="Texture2D" uid="uid://b6eug8bkyfsf6" path="res://Images/stone-pixel-art-style_475147-1384-1.png.png" id="5_k4bkk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfse4"]
+texture = ExtResource("2_k4bkk")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfse4"]
+radius = 34.9857
+height = 69.9714
+
+[node name="CatchGame" type="Node2D"]
+script = ExtResource("1_k5ny0")
+bouncing_character_scene = ExtResource("3_eqdmt")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1146.0
+offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dfse4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 29.0
+offset_top = 21.0
+offset_right = 337.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("2_eqdmt")
+theme_override_font_sizes/font_size = 31
+text = "Puntaje: 0"
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+offset_left = 33.0
+offset_top = 78.0
+offset_right = 221.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("2_eqdmt")
+theme_override_font_sizes/font_size = 29
+text = "Time: 40"
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.5
+offset_top = -79.5
+offset_right = 303.5
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.679015, 2.86378e-06, 2.88785e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eqdmt")
+theme_override_font_sizes/font_size = 88
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BouncingCharacter" parent="." instance=ExtResource("3_eqdmt")]
+position = Vector2(237, 213)
+
+[node name="BouncingCharacter2" parent="." instance=ExtResource("3_eqdmt")]
+position = Vector2(928, 336)
+
+[node name="BouncingCharacter3" parent="." instance=ExtResource("3_eqdmt")]
+position = Vector2(962, 96)
+
+[node name="BouncingCharacter4" parent="." instance=ExtResource("3_eqdmt")]
+position = Vector2(257, 533)
+
+[node name="player" parent="." groups=["player_group"] instance=ExtResource("4_voh7t")]
+position = Vector2(582, 314)
+
+[node name="Obstacle1" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle1"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle1"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle2" type="StaticBody2D" parent="."]
+position = Vector2(229, -184)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle2"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle3" type="StaticBody2D" parent="."]
+position = Vector2(521, -36)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle3"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle4" type="StaticBody2D" parent="."]
+position = Vector2(187, 131)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle4"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle5" type="StaticBody2D" parent="."]
+position = Vector2(616, -238)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle5"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle5"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle6" type="StaticBody2D" parent="."]
+position = Vector2(680, 178)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle6"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle6"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle7" type="StaticBody2D" parent="."]
+position = Vector2(817, -30)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle7"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle7"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle8" type="StaticBody2D" parent="."]
+position = Vector2(-130, 182)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle8"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle8"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle9" type="StaticBody2D" parent="."]
+position = Vector2(832, -317)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle9"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle9"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle10" type="StaticBody2D" parent="."]
+position = Vector2(410, 225)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle10"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle10"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle11" type="StaticBody2D" parent="."]
+position = Vector2(424, -300)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle11"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle11"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle12" type="StaticBody2D" parent="."]
+position = Vector2(-144, -157)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle12"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle12"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
+
+[node name="Obstacle13" type="StaticBody2D" parent="."]
+position = Vector2(53, -228)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle13"]
+position = Vector2(245, 379)
+scale = Vector2(0.64375, 0.68125)
+texture = ExtResource("5_k4bkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle13"]
+position = Vector2(249, 377)
+rotation = 1.63978
+shape = SubResource("CapsuleShape2D_dfse4")
